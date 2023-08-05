@@ -20,11 +20,11 @@ def order():
                     <body class="background">
                         <form method="POST" action="/check_order">
                             <label for="phone">座號:</label><input type="text" name="phone" id="phone" class="enter"><br><br>
-                            <label for="option">今天我想來點 </label><select id="option" name="item">
+                            <label for="option">今天我想來點 </label><select id="option" name="meals">
             '''
         menulist=request.form['menu'].split("\n")
         for i in menulist:
-            html+="<option value=item>{}</option>".format(i)
+            html+="<option value={}>{}</option>".format(i,i)
         html+='''
                                 </select>
                                 <input type="submit" value="送出訂單">
@@ -43,7 +43,7 @@ def order():
 def check():
     if request.method =='POST':
         file=open("static/list.txt",mode='a')
-        print("{}:{}".format(request.form['phone'],request.form['item']),file=file)
+        print("{}:{}".format(request.form['phone'],request.form['meals']),file=file)
         file.close()
         file=open('static/list.txt',mode='r')
         olist=file.readlines()
