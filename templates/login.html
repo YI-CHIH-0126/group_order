@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>log in</title>
+        <link rel='stylesheet href={{url_for("static",filename="template.css")}}'>
+    </head>
+    <body>
+        <form method="POST">
+            <label for="acc">帳號:</label>
+            <input type="text" name="account" id="acc"><br>
+            <label for="pwd">密碼:</label>
+            <input type="password" name="pwd" id="pwd"><br>
+            <input type="submit" value="log in">
+        </form>
+    </body>
+</html>

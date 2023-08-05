@@ -6,9 +6,38 @@ app=Flask(__name__)
 def index():
     return render_template("home.html")
 
-@app.route("/order")
+@app.route("/order",methods=['POST','GET'])
 def order():
-    return render_template("order.html")
+    if request.method=='POST':
+        html='''
+                <!DOCTYPE html>
+                <html>
+                    <head>
+                        <meta charset="UTF-8">
+                        <title>order</title>
+                        <link rel="stylesheet" href="{\{url_for('static',filename='template.css')}}">
+                    </head>
+                    <body class="background">
+                        <form method="POST" action="/check_order">
+                            <label for="phone">座號:</label><input type="text" name="phone" id="phone" class="enter"><br><br>
+                            <label for="option">今天我想來點 </label><select id="option" name="item">
+            '''
+        menulist=request.form['menu'].split("\n")
+        for i in menulist:
+            html+="<option value=item>{}</option>".format(i)
+        html+='''
+                                </select>
+                                <input type="submit" value="送出訂單">
+                            </form>
+                        </body>
+                    </html>
+                '''
+        f=open("./templates/order.html",'w',encoding="utf-8")
+        f.write(html)
+        f.close()
+        return render_template('order.html')
+    else:
+        return render_template("order.html")
 
 @app.route("/check_order",methods=['POST','GET'])
 def check():
@@ -39,6 +68,12 @@ def check():
         html+='</table>'
         file.close()
         return html
-@app.route("/log_in")
+@app.route("/log_in",methods=['POST','GET'])
 def log_in():
-    return render_template("login.html")
+    if request.method=="POST":
+        if request.form['account']=="king" and request.form['pwd']=="0126":
+            return render_template("edit.html")
+        else:
+            return "密碼錯誤"
+    else:
+        return render_template("login.html")

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>編輯菜單</title>
+        <link rel="stylesheet" href="{{url_for('static',filename='template.css')}}">
+    </head>
+    <body>
+        <form method="POST" action="/order">
+            <textarea name="menu" rows="5" cols="50"></textarea><br>
+            <input type="submit">
+        </form>
+    </body>
+</html>
