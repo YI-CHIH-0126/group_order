@@ -76,7 +76,7 @@ def log_in():
         else:
             return "密碼錯誤"
     else:
-        return render_template("./templates/login.html")
+        return render_template("login.html")
     
 if __name__ == '__main__':
     app.run()
