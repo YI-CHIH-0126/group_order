@@ -32,7 +32,7 @@ def order():
                         </body>
                     </html>
                 '''
-        f=open("/templates/order.html",'w',encoding="utf-8")
+        f=open("./templates/order.html",'w',encoding="utf-8")
         f.write(html)
         f.close()
         return render_template('order.html')
@@ -42,10 +42,10 @@ def order():
 @app.route("/check_order",methods=['POST','GET'])
 def check():
     if request.method =='POST':
-        file=open("/static/list.txt",mode='a')
+        file=open("./static/list.txt",mode='a')
         print("{}:{}".format(request.form['phone'],request.form['meals']),file=file)
         file.close()
-        file=open('/static/list.txt',mode='r')
+        file=open('./static/list.txt',mode='r')
         olist=file.readlines()
         html='''
                 <h1>完成點餐</h1>
@@ -61,7 +61,7 @@ def check():
                 <h1>完成點餐</h1>
                 <table border>
             '''
-        file=open("/static/list.txt","r")
+        file=open("./static/list.txt","r")
         olist=file.readlines()
         for i in olist:
             html+="<tr><td>{}</td></tr>".format(i)
