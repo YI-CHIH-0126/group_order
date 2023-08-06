@@ -4,7 +4,7 @@ from flask import Flask,request,render_template
 app=Flask(__name__)
 @app.route("/")
 def index():
-    return render_template("./templates/home.html")
+    return render_template("home.html")
 
 @app.route("/order",methods=['POST','GET'])
 def order():
@@ -35,9 +35,9 @@ def order():
         f=open("./templates/order.html",'w',encoding="utf-8")
         f.write(html)
         f.close()
-        return render_template('./templates/order.html')
+        return render_template('order.html')
     else:
-        return render_template("./templates/order.html")
+        return render_template("order.html")
 
 @app.route("/check_order",methods=['POST','GET'])
 def check():
@@ -72,7 +72,7 @@ def check():
 def log_in():
     if request.method=="POST":
         if request.form['account']=="king" and request.form['pwd']=="0126":
-            return render_template("./templates/edit.html")
+            return render_template("edit.html")
         else:
             return "密碼錯誤"
     else:
