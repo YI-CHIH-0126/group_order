@@ -8,9 +8,9 @@
     <body class="background">
         <h1>請選擇所需功能</h1>
         <div class="frame">
-            <a class="order" href="http://127.0.0.1:5000/order">點餐</a>
-            <a class="check_order" href="http://127.0.0.1:5000/check_order">檢查餐點</a>
-            <a class="manager_log_in" href="http://127.0.0.1:5000/log_in">管理者登入</a>
+            <form action="/order" method="GET"><input type="submit" value="點餐"></form>
+            <form action="/check_order" method="GET"><input type="submit" value="檢查餐點"></form>            <a class="manager_log_in" href="http://127.0.0.1:5000/log_in">管理者登入</a>
+            <form action="/log_in" method="GET"><input type="submit" value="管理者登入"></form>
         </div>
     </body>
 </html>
