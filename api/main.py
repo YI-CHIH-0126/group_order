@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from flask import Flask,request,render_template
+from flask import Flask,request,render_template,redirect,url_for
 
 app=Flask(__name__)
 @app.route("/")
@@ -77,3 +77,17 @@ def log_in():
             return "密碼錯誤"
     else:
         return render_template("login.html")
+    
+@app.route("/close",methods=['POST'])
+def close():
+    f=open("./templates/order.html","w")
+    f.write("")
+    f.close()
+    return redirect(url_for('log_in'))
+
+@app.route("/delete",methods=['POST'])
+def delete():
+    f=open("./static/list.txt","w")
+    f.truncate(0) #清空檔案內容
+    f.close()
+    return redirect(url_for('log_in'))
