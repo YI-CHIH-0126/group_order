@@ -81,7 +81,7 @@ def log_in():
 @app.route("/close",methods=['POST'])
 def close():
     f=open("./templates/order.html","w")
-    f.write("")
+    f.write("<h1>目前未開放訂餐</h1>")
     f.close()
     return redirect(url_for('log_in'))
 
