@@ -80,14 +80,14 @@ def log_in():
     
 @app.route("/close",methods=['POST'])
 def close():
-    f=open("./templates/order.html","w")
+    f=open("./templates/order.html","w",encoding='UTF-8')
     f.write("<h1>目前未開放訂餐</h1>")
     f.close()
-    return redirect(url_for('log_in'))
+    return redirect(url_for('index'))
 
 @app.route("/delete",methods=['POST'])
 def delete():
     f=open("./static/list.txt","w")
     f.truncate(0) #清空檔案內容
     f.close()
-    return redirect(url_for('log_in'))
+    return redirect(url_for('index'))
