@@ -20,8 +20,9 @@ flask run --app main.py
 
 ## 架構
 group_order
-\--static:CSS等靜態檔案
-\--templates：html檔案
+- api
+   - static:CSS等靜態檔案
+   - templates：html檔案
 
 ## 特色
 使用簡單的前端*HTML*及*CSS*，配合後端輕量級*Python*框架*Flask*，大小輕盈也可以架設於雲端伺服器
