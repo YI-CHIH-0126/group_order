@@ -27,5 +27,10 @@ group_order
 ## 特色
 使用簡單的前端*HTML*及*CSS*，配合後端輕量級*Python*框架*Flask*，大小輕盈也可以架設於雲端伺服器
 
+## 待實作功能
+1. 自動統計各餐點數量及總價
+2. 於每日設定時間清除過期訂購列表
+3. 於設定時間關閉訂餐功能
+
 ## 技術指標
 ![Static Badge](https://img.shields.io/badge/-python?logo=Python&label=Python) ![Static Badge](https://img.shields.io/badge/-Flask?logo=Flask&label=Flask) ![Static Badge](https://img.shields.io/badge/-HTML?logo=Html5&label=HTML) ![Static Badge](https://img.shields.io/badge/-CSS?logo=CSS3&label=CSS)
